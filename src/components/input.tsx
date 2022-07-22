@@ -1,18 +1,31 @@
-export type Props ={
-    type:IntrinsicElements
-    name: IntrinsicElements
-    value: IntrinsicElements
-    onChange: IntrinsicElements
+import { ChangeEventHandler } from 'react'
+
+export type InputProps = {
+  type: string
+  value: string
+  name: string
+  placeholder: string
+  handleChange: ChangeEventHandler<HTMLInputElement>
 }
 
-
-
-const Input = ({ type, name, value, onChange }:Props) =>{
-    return(
-        <>
-            <input type={type} name={name} value={value} onChange={onChange} />
-        </>
-    )
+const Input = ({
+  type,
+  value,
+  name,
+  placeholder,
+  handleChange
+}: InputProps) => {
+  return (
+    <>
+      <input
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+      />
+    </>
+  )
 }
 
 export default Input
